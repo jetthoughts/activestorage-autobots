@@ -3,7 +3,9 @@
 
 # ActiveStorage Autobots (aka ActiveStorage Transformers)
 
-Enables ActiveStorage variants for other file types than images, such as audio or video files, through an API for registering custom transformers similar to previewers. An example `ffmpeg` transformation is provided.
+Enables ActiveStorage variants for other file types than images, such as audio or video files, through an API for registering custom transformers similar to previewers.
+
+This will provide for you to add `ffmpeg` or other transformers to pre-process video, audio files.
 
 ## Installation
 
@@ -59,7 +61,12 @@ ActiveStorage.transformers << ActiveStorage::Transformers::FFMPEGTransformer
 ```
 
 ```html+erb
-<%= audio_tag user.my_audio.variant(ffmpeg_opts: "-af silenceremove=stop_periods=-1:stop_duration=1:stop_threshold=-90dB", format: "mp3") %>
+<%= audio_tag(
+      user.my_audio.variant(
+        ffmpeg_opts: "-af silenceremove=stop_periods=-1:stop_duration=1:stop_threshold=-90dB",
+        format: "mp3"
+      )
+    ) %>
 ```
 
 ## Contributing
