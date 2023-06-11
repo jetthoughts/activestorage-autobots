@@ -62,6 +62,8 @@ module ActiveStorage
 
     module VideoAnalyzerOverride
       def accept?(blob)
+        # TODO: we should explicitly pass content type of the transformed files.
+        #       Sometimes Marco could not able to detect from file name only, like we got for `video/mp4`.
         blob.video? || blob.content_type.end_with?("/mp4")
       end
     end
