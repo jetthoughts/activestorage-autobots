@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
     "such as audio or video files, through an API for registering custom transformers similar to previewers."
   s.license = "MIT"
 
-  s.required_ruby_version     = ">= 2.5.0"
+  s.required_ruby_version = ">= 2.5.0"
 
   s.files = Dir["CHANGELOG.md", "MIT-LICENSE", "README.md", "lib/**/*"]
   s.require_path = "lib"

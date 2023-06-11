@@ -12,7 +12,6 @@ module ActiveStorage
       def variable?
         ActiveStorage.transformers.any? { |klass| klass.accept?(self) }
       end
-
     end
 
     module VariantOverride
@@ -30,7 +29,7 @@ module ActiveStorage
         blob.open do |input|
           variation.transform(blob, input) do |output|
             yield io: output, filename: "#{blob.filename.base}.#{variation.format.downcase}",
-              content_type: variation.content_type, service_name: blob.service.name
+                  content_type: variation.content_type, service_name: blob.service.name
           end
         end
       end
